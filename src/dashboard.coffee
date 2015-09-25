@@ -63,8 +63,8 @@ module.exports = (System) ->
     globals:
       public:
         nav: {}
-        styles:
-          'kerplunk-dashboard/css/edit.css': ['/admin/dashboard/stream/:id/edit']
+        css:
+          'kerplunk-dashboard:edit': 'kerplunk-dashboard/css/edit.css'
         editStreamConditionOptions:
           containsText:
             description: 'contains the text..'

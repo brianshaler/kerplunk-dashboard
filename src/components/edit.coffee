@@ -10,6 +10,7 @@ module.exports = React.createFactory React.createClass
     title: @props.stream?.title ? ''
     type: @props.stream?.type ? 'stream'
     conditions: @props.stream?.conditions ? []
+    attributes: @props.stream?.attributes ? []
 
   selectConditionType: (id, e) ->
     console.log 'selectConditionType'
@@ -133,6 +134,13 @@ module.exports = React.createFactory React.createClass
                     value: streamType
                     selected: (true if streamType == @state.type)
                   , details.description
+              if @props.globals.public.streamTypes?[@state.type]?.optionsComponent
+                componentPath = @props.globals.public.streamTypes[@state.type].optionsComponent
+                Component = @props.getComponent componentPath
+                Component _.extend {}, @props, @state
+              else
+                console.log 'nope?', @props.globals.public.streamTypes?[@state.type]
+                null
             DOM.p null,
               DOM.div null, 'Conditions:'
               DOM.div

@@ -11,17 +11,19 @@ module.exports = (mongoose) ->
   DashboardStreamSchema = new Schema
     title:
       type: String
-      default: ""
+      default: ''
     type:
       type: String
-      default: "stream"
+      default: 'stream'
     conditions: [{}]
+    attributes: {}
     createdAt:
       type: Date
       default: Date.now
 
   DashboardStreamSchema.pre 'save', (next) ->
-    @markModified "conditions"
+    @markModified 'conditions'
+    @markModified 'attributes'
     next()
 
   mongoose.model 'DashboardStream', DashboardStreamSchema

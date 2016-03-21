@@ -20,6 +20,7 @@ module.exports = editStream = (System) ->
         #process.emit "reset"
       stream.type = props.type
       stream.conditions = []
+      stream.attributes = props.attributes ? {}
 
       conditions = _.filter props.conditions, (condition) ->
         condition?.name?.length > 0

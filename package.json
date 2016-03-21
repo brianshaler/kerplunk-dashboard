@@ -18,7 +18,7 @@
   },
   "main": "./lib/dashboard.js",
   "dependencies": {
-    "lodash": "^3.7.0",
+    "lodash": "^4.6.1",
     "react": "^0.13.2",
     "reactive-data": "0.0.4",
     "when": "^3.7.3"

@@ -34,7 +34,7 @@ module.exports = (System) ->
 
       Promise.all promises
       .then (wheres) ->
-        queries = _.compact _.pluck wheres, 'query'
+        queries = _.compact _.map wheres, 'query'
         for query in queries
           for k, v of query
             if opt.where[k]?

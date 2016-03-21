@@ -33,7 +33,7 @@ module.exports = (System) ->
       return next null, [] unless items?.length > 0
       #activityItems = items
       if opt.perUser == 1
-        items = _.uniq items, false, (item) -> item.identity._id
+        items = _.uniqBy items, (item) -> item.identity._id
       #console.log _.map items, (item) -> [item.message, item.identity._id]
       Promise.all _.map items, (item) ->
         if item.toObject
